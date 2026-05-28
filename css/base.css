@@ -196,7 +196,7 @@ section.container {
 
 /* ── INFO PANEL (Sidebar) ── */
 .info {
-    width: 480px;
+    width: 220px;
     flex-shrink: 0;
     padding: var(--pad-lg);
     border-right: 1px solid var(--clr-border);
@@ -303,11 +303,12 @@ footer {
 
 @media (max-width: 768px) {
     nav {
-        padding: 15px 20px;
+        padding: 12px 16px;
     }
     
     section.container {
-        padding: 20px 15px;
+        padding: 12px 10px;
+        align-items: flex-start;
     }
 
     .group {
@@ -320,9 +321,10 @@ footer {
         border-bottom: 1px solid var(--clr-border);
         flex-direction: row;
         overflow-x: auto;
-        padding: 15px;
+        padding: 12px;
         white-space: nowrap;
         scrollbar-width: none; /* Firefox */
+        gap: 8px;
     }
 
     .info::-webkit-scrollbar {
@@ -330,23 +332,34 @@ footer {
     }
 
     .info a {
-        padding: 10px 16px;
+        padding: 10px 14px;
+        font-size: 10px;
+        letter-spacing: 1px;
+        flex-shrink: 0;
+    }
+
+    .card-header h2, .card-mainheader h2 {
         font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+    .card-ref {
+        font-size: 9px;
     }
 
     .card-header, .card-mainheader {
         flex-direction: column;
-        gap: 10px;
-        align-items: flex-start;
-        padding: 15px 20px;
+        gap: 6px;
+        padding: 12px 16px;
     }
 
     footer {
         flex-direction: column;
-        gap: 12px;
+        gap: 8px;
         align-items: center;
         text-align: center;
-        padding: 20px;
+        padding: 14px;
+        font-size: 9px;
     }
 }
 
@@ -355,8 +368,12 @@ footer {
         display: none;
     }
     
-    .card-header h2, .card-mainheader h2 {
-        font-size: 13px;
+    .logo h2 {
+        font-size: 14px;
         letter-spacing: 3px;
+    }
+
+    section.container {
+        padding: 8px;
     }
 }

@@ -194,3 +194,24 @@
         padding: 20px;
     }
 }
+
+@media (max-width: 480px) {
+    .profilepic img {
+        width: 110px;
+        height: 140px;
+    }
+
+    .profileinfo strong {
+        width: 85px;
+        font-size: 9px;
+    }
+
+    .profileinfo p {
+        font-size: 12px;
+    }
+
+    .tag {
+        font-size: 9px;
+        padding: 5px 10px;
+    }
+}

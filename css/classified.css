@@ -1,19 +1,20 @@
 /* ── CLASSIFIED FILES LAYOUT ── */
 .info {
     width: 30%;
+    min-width: 160px;
 }
 
 .group {
     display: flex;
     align-items: stretch;
     flex: 1;
-    min-height: 0;    
-    height: 65vh;          
+    min-height: 0;             
     overflow: hidden;       
 }
 
 .file-list {
-    width: 70%;
+    width: auto;
+    flex: 1;
     flex-shrink: 0;
     padding: var(--pad-lg);
     display: flex;
@@ -294,19 +295,52 @@
 }
 
 @media (max-width: 768px) {
+    .group {
+        flex-direction: column;
+        overflow: visible;
+    }
+
+    .info {
+        width: 100%;
+        min-width: unset;
+    }
+
     .file-list {
         width: 100%;
         border-right: none;
         border-bottom: 1px solid var(--clr-border-dim);
-        padding: 20px;
+        padding: 16px;
+        max-height: 280px;   /* biar tidak terlalu panjang */
+        overflow-y: auto;
+    }
+
+    .file-card {
+        padding: 12px 16px;
+        font-size: 10px;
+        letter-spacing: 1.5px;
+    }
+
+    .file-meta {
+        display: none;       /* sembunyikan di mobile biar tidak overflow */
     }
 
     .file-view {
-        padding: 30px 20px;
+        padding: 20px 16px;
     }
 
     .view-title {
-        font-size: 14px;
+        font-size: 12px;
+        letter-spacing: 2px;
+        width: 100%;
+    }
+
+    .modal-box {
+        padding: 24px 20px;
+    }
+
+    .modal-input {
+        font-size: 16px;     /* cegah auto-zoom di iOS */
+        letter-spacing: 4px;
     }
 }
 
