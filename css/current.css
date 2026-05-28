@@ -1,0 +1,105 @@
+/* ── CURRENT SIGNALS LAYOUT ── */
+.left-panel {
+    flex: 1;
+    padding: var(--pad-lg);
+    border-right: 1px solid var(--clr-border-dim);
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    background: rgba(11, 22, 40, 0.1);
+}
+
+.right-panel {
+    flex: 1;
+    padding: var(--pad-lg);
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    background: rgba(11, 22, 40, 0.3);
+    border-left: 1px solid var(--clr-border-dim);
+}
+
+.focus-box, .interest-box, .act-box, .mood-box {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.focus-box, .act-box {
+    margin-bottom: 20px;
+}
+
+h4.bracket {
+    color: var(--clr-accent);
+    font-size: 13px;
+    letter-spacing: 4px;
+    margin: 0;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+h4.bracket::before { content: '['; color: var(--clr-dim); }
+h4.bracket::after { content: ']'; color: var(--clr-dim); }
+
+.focus-box ul, .interest-box ul, .act-box ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.focus-box li, .interest-box li, .act-box li {
+    font-size: 13px;
+    color: var(--clr-text);
+    padding-left: 24px;
+    position: relative;
+    line-height: 1.6;
+    transition: var(--transition-fast);
+}
+
+.focus-box li:hover, .interest-box li:hover, .act-box li:hover {
+    color: var(--clr-accent);
+    transform: translateX(5px);
+}
+
+.focus-box li::before, .interest-box li::before, .act-box li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--clr-accent2);
+    font-size: 12px;
+    transition: var(--transition-fast);
+}
+
+.mood-box p {
+    font-size: 16px;
+    color: var(--clr-accent2);
+    letter-spacing: 1.5px;
+    font-style: italic;
+    padding: 16px 20px;
+    background: rgba(0, 255, 136, 0.05);
+    border-left: 3px solid var(--clr-accent2);
+    border-radius: 2px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── RESPONSIVE OVERRIDES ── */
+@media (max-width: 768px) {
+    .left-panel {
+        border-right: none;
+        border-bottom: 1px solid var(--clr-border-dim);
+        padding: 30px 20px;
+    }
+
+    .right-panel {
+        border-left: none;
+        padding: 30px 20px;
+    }
+}

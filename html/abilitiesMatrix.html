@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abilities Matrix</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/abilitiesMatrix.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <h2><a href="index.html">Kaeralabs.</a></h2>
+        </div>
+        <span class="nav-status">SYSTEM ONLINE</span>
+    </nav>
+    <section class="container" role="main">
+        <div class="card-box">
+            <div class="card-mainheader">
+                <h2><span class="bracket">[</span> ABILITIES MATRIX <span class="bracket">]</span></h2>
+                <span class="card-ref">REF-ID: KL-2026-∆09</span>
+            </div>
+            <div class="group">
+                <div class="info">
+                    <a href="identityLog.html">IDENTITY LOG</a>
+                    <a href="missionLog.html">MISSION LOG</a>
+                    <a href="abilitiesMatrix.html" class="active">ABILITIES MATRIX</a>
+                    <a href="currentSignals.html">CURRENT SIGNALS</a>
+                    <a href="classifiedFiles.html">CLASSIFIED FILES</a>
+                    <a href="transmission.html">TRANSMISSION</a>
+                </div>
+                <div class="abilities-matrix">
+                    <div class="left-panel">
+                        <div class="system-status">
+                            <span class="status-dot"></span>
+                            <span class="status-text" id="systemStatus">Analyzing capabilities...</span>
+                        </div>
+                        <div class="panel-label">// SKILL MODULES</div>
+                        <div class="skill-list">
+                            <div class="skill-item" data-skill="creativity" data-value="84">
+                                <div class="skill-header">
+                                    <span class="skill-name">Creativity</span>
+                                    <span class="skill-value">84%</span>
+                                </div>
+                                <div class="skill-bar-bg">
+                                    <div class="skill-bar-fill" data-target="84"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item" data-skill="logic" data-value="86">
+                                <div class="skill-header">
+                                    <span class="skill-name">Logic</span>
+                                    <span class="skill-value">86%</span>
+                                </div>
+                                <div class="skill-bar-bg">
+                                    <div class="skill-bar-fill" data-target="86"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item" data-skill="problemSolving" data-value="88">
+                                <div class="skill-header">
+                                    <span class="skill-name">Problem Solving</span>
+                                    <span class="skill-value">88%</span>
+                                </div>
+                                <div class="skill-bar-bg">
+                                    <div class="skill-bar-fill" data-target="88"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item" data-skill="communication" data-value="89">
+                                <div class="skill-header">
+                                    <span class="skill-name">Communication</span>
+                                    <span class="skill-value">89%</span>
+                                </div>
+                                <div class="skill-bar-bg">
+                                    <div class="skill-bar-fill" data-target="89"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item" data-skill="design" data-value="91">
+                                <div class="skill-header">
+                                    <span class="skill-name">Design</span>
+                                    <span class="skill-value">91%</span>
+                                </div>
+                                <div class="skill-bar-bg">
+                                    <div class="skill-bar-fill" data-target="91"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item locked" data-skill="advancedAI" data-value="0">
+                                <div class="skill-header">
+                                    <span class="skill-name">Advanced AI</span>
+                                    <span class="skill-locked-badge">[LOCKED]</span>
+                                </div>
+                                <div class="skill-bar-bg">
+                                    <div class="skill-bar-fill" data-target="0"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="diagnostics">
+                            <div class="panel-label">// PROFILE DIAGNOSTICS</div>
+                            <div class="diag-row"><span>NEURAL LOAD</span><span class="diag-val">42%</span></div>
+                            <div class="diag-bar"><div class="diag-bar-fill" data-target="42"></div></div>
+                            <div class="diag-row"><span>SYNC RATE</span><span class="diag-val">98%</span></div>
+                            <div class="diag-bar"><div class="diag-bar-fill" data-target="98"></div></div>
+                            <div class="diag-row"><span>CORE TEMP</span><span class="diag-val">OPTIMAL</span></div>
+                            <div class="diag-bar"><div class="diag-bar-fill" data-target="72"></div></div>
+                        </div>
+                    </div>
+                    <div class="right-panel">
+                        <div class="analysis-header">// SKILL ANALYSIS</div>
+                        <div class="analysis-content" id="analysisContent">
+                            <div class="analysis-skill-name" id="analysisName">SELECT MODULE</div>
+                            <div class="analysis-percentage" id="analysisPercent">--%</div>
+                            <div class="analysis-desc" id="analysisDesc">Hover over or select a skill module to view detailed analysis and operational data.</div>
+                            <div class="typing-line" id="typingLine"></div>
+                        </div>
+                        <div class="analysis-meta" id="analysisMeta">
+                            <div class="meta-row"><span class="meta-label">ATTRIBUTE</span><span class="meta-val">--</span></div>
+                            <div class="meta-row"><span class="meta-label">CLASS</span><span class="meta-val">--</span></div>
+                            <div class="meta-row"><span class="meta-label">MODULE ID</span><span class="meta-val">--</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>Presented by Kaeralabs. | All rights reserved. | 2026</p>
+    </footer>
+    <script src="../javascript/abilitiesMatrix.js"></script>
+</body>
+</html>
+

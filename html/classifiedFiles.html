@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classified Files</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/classified.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">
+            <h2><a href="index.html">Kaeralabs.</a></h2>
+        </div>
+        <span class="nav-status">SYSTEM ONLINE</span>
+    </nav>
+
+    <section class="container" role="main">
+        <div class="card-box">
+
+            <div class="card-mainheader">
+                <h2>
+                    <span class="bracket">[</span>
+                    CLASSIFIED FILES
+                    <span class="bracket">]</span>
+                </h2>
+                <span class="card-ref">REF-ID: KL-2026-∆09</span>
+            </div>
+
+            <div class="group">
+
+                <!-- ── LEFT NAV ── -->
+                <div class="info">
+                    <a href="identityLog.html">IDENTITY LOG</a>
+                    <a href="missionLog.html">MISSION LOG</a>
+                    <a href="abilitiesMatrix.html">ABILITIES MATRIX</a>
+                    <a href="currentSignals.html">CURRENT SIGNALS</a>
+                    <a href="classifiedFiles.html" class="active">CLASSIFIED FILES</a>
+                    <a href="transmission.html">TRANSMISSION</a>
+                </div>
+
+                <!-- ── FILE LIST ── -->
+                <div class="file-list" id="fileList">
+
+                    <div class="file-card" data-key="OBSERVATION NOTES" data-id="01">
+                        <span class="file-arrow">▶</span>
+                        FILE 01 &nbsp;▸&nbsp; OBSERVATION NOTES
+                        <span class="file-meta">CARA OBSERVE DUNIA</span>
+                    </div>
+
+                    <div class="file-card" data-key="INTERNAL STATE" data-id="02">
+                        <span class="file-arrow">▶</span>
+                        FILE 02 &nbsp;▸&nbsp; INTERNAL STATE
+                        <span class="file-meta">KONDISI &amp; GROWTH</span>
+                    </div>
+
+                    <div class="file-card" data-key="PERSONAL PATTERNS" data-id="03">
+                        <span class="file-arrow">▶</span>
+                        FILE 03 &nbsp;▸&nbsp; PERSONAL PATTERNS
+                        <span class="file-meta">KEBIASAAN UNIK</span>
+                    </div>
+
+                    <div class="file-card locked" data-id="04">
+                        <span class="lock-icon"><img src="../assets/lock.svg" alt="Locked"></span>
+                        <span class="locked-label">FILE 04 &nbsp;▸&nbsp; [ LOCKED ] </span>
+                        <span class="file-meta">CLEARANCE REQUIRED</span>
+                    </div>
+
+                    <div class="file-card" data-key="INTERNAL ARCHIVE" data-id="05">
+                        <span class="file-arrow">▶</span>
+                        FILE 05 &nbsp;▸&nbsp; INTERNAL ARCHIVE
+                        <span class="file-meta">THOUGHTS / PRINCIPLES</span>
+                    </div>
+
+                    <div class="file-card" data-key="BEHAVIOR ANALYSIS" data-id="06">
+                        <span class="file-arrow">▶</span>
+                        FILE 06 &nbsp;▸&nbsp; BEHAVIOR ANALYSIS
+                        <span class="file-meta">CARA BERTINDAK</span>
+                    </div>
+
+                    <div class="file-card" data-key="ACTIVE TRAITS" data-id="07">
+                        <span class="file-arrow">▶</span>
+                        FILE 07 &nbsp;▸&nbsp; ACTIVE TRAITS
+                        <span class="file-meta">TRAIT UTAMA</span>
+                    </div>
+
+                </div><!-- /file-list -->
+
+            </div><!-- /group -->
+
+            <div class="file-view hidden" id="fileView">
+                <div class="panel-header" id="panelHeader">
+                    <p class="view-title" id="viewTitle"></p>
+                    <button class="close-btn" id="closeBtn">✕ BACK</button>
+                </div>
+                <p class="opening-text" id="openingText"></p>
+                <div class="view-content" id="viewContent"></div>
+            </div>
+
+        </div><!-- /card-box -->
+    </section>
+
+    <!-- ── PASSWORD MODAL ── -->
+    <div class="modal-overlay hidden" id="modalOverlay">
+        <div class="modal-box">
+            <div class="modal-lock-icon"><img src="../assets/lock.svg" alt="Locked"></div>
+            <p class="modal-title">RESTRICTED ACCESS</p>
+            <p class="modal-subtitle">
+                This file requires authorized clearance.<br>
+                Enter passphrase to decrypt.
+            </p>
+            <input
+                type="password"
+                class="modal-input"
+                id="modalInput"
+                placeholder="_ _ _ _ _ _ _ _"
+                autocomplete="off"
+                spellcheck="false"
+            />
+            <p class="modal-error" id="modalError"></p>
+            <button class="modal-btn" id="modalSubmit">SUBMIT PASSPHRASE</button>
+            <button class="modal-cancel" id="modalCancel">CANCEL — RETURN</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>Presented by Kaeralabs. | All rights reserved. | 2026</p>
+    </footer>
+
+    <script src="../javascript/classified.js"></script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+/* ── MISSION LOG LAYOUT ── */
+.mission {
+    flex: 1;
+    padding: var(--pad-lg);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: transparent;
+}
+
+.mission-entry {
+    border: 1px solid var(--clr-border);
+    border-radius: 4px;
+    background: var(--clr-deep);
+    overflow: hidden;
+    transition: var(--transition-smooth);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.mission-entry:hover {
+    border-color: var(--clr-dim);
+}
+
+.mission-header {
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    cursor: pointer;
+    background: rgba(30, 58, 95, 0.1);
+    transition: var(--transition-smooth);
+    user-select: none;
+}
+
+.mission-header:hover {
+    background: rgba(0, 212, 255, 0.05);
+}
+
+.mission-indicator {
+    color: var(--clr-accent);
+    font-size: 16px;
+    transition: var(--transition-smooth);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+}
+
+.mission-header h2 {
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: var(--clr-text);
+    margin: 0;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.mission-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mission-entry.active {
+    border-color: var(--clr-accent);
+}
+
+.mission-entry.active .mission-content {
+    max-height: 600px;
+}
+
+.mission-entry.active .mission-indicator {
+    transform: rotate(90deg);
+    color: var(--clr-accent2);
+}
+
+.mission-entry.active .mission-header {
+    border-bottom: 1px solid var(--clr-border-dim);
+    background: rgba(0, 212, 255, 0.08);
+}
+
+.mission-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--clr-muted);
+}
+
+.mission-body p {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.mission-body strong {
+    color: var(--clr-accent);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    min-width: 100px;
+    flex-shrink: 0;
+    padding-top: 2px;
+}
+
+/* ── RESPONSIVE OVERRIDES ── */
+@media (max-width: 768px) {
+    .mission {
+        padding: 20px 15px;
+    }
+    
+    .mission-header {
+        padding: 16px 20px;
+    }
+
+    .mission-header h2 {
+        font-size: 12px;
+    }
+
+    .mission-body {
+        padding: 20px;
+    }
+
+    .mission-body p {
+        flex-direction: column;
+        gap: 4px;
+    }
+}
