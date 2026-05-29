@@ -1,7 +1,7 @@
 /* ── MEDIA PANEL (Index specific) ── */
 .media {
     width: 360px;
-    flex-shrink: 0;
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,6 +9,7 @@
     gap: 20px;
     background: transparent;
     border-left: 1px solid var(--clr-border);
+    align-self: stretch;
 }
 
 .info {
