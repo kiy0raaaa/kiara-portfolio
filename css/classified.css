@@ -1,15 +1,11 @@
-/* ── CLASSIFIED FILES LAYOUT ── */
-.info {
-    width: 30%;
-    min-width: 160px;
-}
-
-.group {
+.file-panel {
     display: flex;
-    align-items: stretch;
-    flex: 1;
-    min-height: 0;             
-    overflow: hidden;       
+    flex-direction: column;
+    width: 100%;
+    flex: 1;             /* ← wajib agar overflow bekerja */
+    background: transparent;
+    align-self: stretch;
+    border-left: 1px solid var(--clr-border);
 }
 
 .file-list {
@@ -18,11 +14,19 @@
     flex-shrink: 0;
     padding: var(--pad-lg);
     display: flex;
+    align-self: stretch;
     flex-direction: column;
     gap: 12px;
     overflow-y: auto;
-    border-right: 1px solid var(--clr-border-dim);
-    background: rgba(11, 22, 40, 0.2);
+}
+
+.card-header {
+    padding: var(--pad-md) var(--pad-lg);
+    border-bottom: 1px solid var(--clr-border);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background: rgba(30, 58, 95, 0.05);
 }
 
 .file-card {
@@ -310,7 +314,7 @@
         border-right: none;
         border-bottom: 1px solid var(--clr-border-dim);
         padding: 16px;
-        max-height: 280px;   /* biar tidak terlalu panjang */
+        max-height: 280px;
         overflow-y: auto;
     }
 
@@ -321,7 +325,7 @@
     }
 
     .file-meta {
-        display: none;       /* sembunyikan di mobile biar tidak overflow */
+        display: none;
     }
 
     .file-view {
@@ -339,7 +343,7 @@
     }
 
     .modal-input {
-        font-size: 16px;     /* cegah auto-zoom di iOS */
+        font-size: 16px;
         letter-spacing: 4px;
     }
 }

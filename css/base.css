@@ -34,15 +34,19 @@
     padding: 0;
 }
 
+html, body {
+    height: 100%;
+}
+
 html {
     scrollbar-width: thin;
     scrollbar-color: var(--clr-border) var(--clr-bg);
 }
 
 body {
-    min-height: 100vh;
+    height: 100vh;
+    overflow: hidden;           /* ← body tidak scroll; scroll ada di dalam */
     width: 100%;
-    overflow-x: hidden;
     display: flex;
     flex-direction: column;
     background-color: var(--clr-bg);
@@ -55,6 +59,7 @@ body {
 /* ── NAV ── */
 nav {
     width: 100%;
+    flex-shrink: 0;             /* ← nav tidak menyusut */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -109,14 +114,12 @@ nav {
 
 /* ── MAIN WRAPPER ── */
 section.container {
-    flex: 1;
+    flex: 1;                    /* ← mengisi sisa ruang antara nav dan footer */
+    min-height: 0;              /* ← wajib agar flex child bisa shrink */
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 40px var(--pad-xl);
     width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
+    overflow: hidden;           /* ← scroll diatur di .group, bukan di sini */
+    padding: 0;                 /* ← hapus padding lama */
     animation: container-entry var(--transition-slow);
 }
 
@@ -128,15 +131,19 @@ section.container {
 /* ── CARD BOX ── */
 .card-box {
     width: 100%;
-    max-width: 1100px;
+    max-width: none;            /* ← hilangkan max-width agar full lebar */
     background: var(--clr-card);
-    border: 1px solid var(--clr-border);
-    border-radius: 6px;
+    border-top: 1px solid var(--clr-border);
+    border-bottom: none;        /* ← footer yang handle batas bawah */
+    border-left: none;
+    border-right: none;
+    border-radius: 0;           /* ← hilangkan rounded corner */
     position: relative;
     overflow: hidden;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(0, 212, 255, 0.05);
+    box-shadow: inset 0 0 20px rgba(0, 212, 255, 0.03);
     display: flex;
     flex-direction: column;
+    min-height: 0;              /* ← wajib */
 }
 
 .card-box::before {
@@ -156,6 +163,7 @@ section.container {
 
 /* ── CARD HEADER ── */
 .card-header, .card-mainheader {
+    flex-shrink: 0;             /* ← header tidak ikut scroll */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -191,7 +199,25 @@ section.container {
 .group {
     display: flex;
     width: 100%;
-    flex: 1;
+    flex: 1;                    /* ← mengisi sisa tinggi card-box */
+    min-height: 0;              /* ← wajib agar overflow bekerja */
+    align-items: flex-start;    /* ← konten punya tinggi natural → group bisa scroll */
+    overflow-y: auto;           /* ← area ini yang bisa di-scroll */
+    overflow-x: hidden;
+    align-self: stretch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--clr-border) transparent;
+}
+
+.group::-webkit-scrollbar {
+    width: 4px;
+}
+.group::-webkit-scrollbar-track {
+    background: transparent;
+}
+.group::-webkit-scrollbar-thumb {
+    background: var(--clr-border);
+    border-radius: 2px;
 }
 
 /* ── INFO PANEL (Sidebar) ── */
@@ -199,11 +225,21 @@ section.container {
     width: 220px;
     flex-shrink: 0;
     padding: var(--pad-lg);
-    border-right: 1px solid var(--clr-border);
     display: flex;
     flex-direction: column;
     gap: 12px;
-    background: rgba(11, 22, 40, 0.2);
+    background: rgba(11, 22, 40, 0.2);         /* ← sidebar tetap terlihat saat scroll */
+    top: 0;
+    align-self: flex-start;          /* ← agar posisi awal di atas, bukan tengah */
+    max-height: 100%;
+    min-height: auto;
+    position: sticky;           /* ← sidebar tetap di tempat saat scroll */
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.info::-webkit-scrollbar {
+    display: none;
 }
 
 .info-label {
@@ -283,6 +319,7 @@ section.container {
 /* ── FOOTER ── */
 footer {
     width: 100%;
+    flex-shrink: 0;             /* ← footer tidak menyusut, selalu di bawah */
     border-top: 1px solid var(--clr-border-dim);
     padding: var(--pad-md) var(--pad-xl);
     display: flex;
@@ -297,7 +334,7 @@ footer {
 /* ── RESPONSIVENESS ── */
 @media (max-width: 1024px) {
     .card-box {
-        max-width: 900px;
+        max-width: none;
     }
 }
 
@@ -307,8 +344,7 @@ footer {
     }
     
     section.container {
-        padding: 12px 10px;
-        align-items: flex-start;
+        padding: 0;
     }
 
     .group {
@@ -317,18 +353,21 @@ footer {
 
     .info {
         width: 100%;
+        position: static;       /* ← di mobile, sidebar tidak sticky */
         border-right: none;
         border-bottom: 1px solid var(--clr-border);
         flex-direction: row;
         overflow-x: auto;
+        overflow-y: hidden;
         padding: 12px;
         white-space: nowrap;
-        scrollbar-width: none; /* Firefox */
+        scrollbar-width: none;
         gap: 8px;
+        max-height: none;
     }
 
     .info::-webkit-scrollbar {
-        display: none; /* Safari/Chrome */
+        display: none;
     }
 
     .info a {
@@ -374,6 +413,6 @@ footer {
     }
 
     section.container {
-        padding: 8px;
+        padding: 0;
     }
 }

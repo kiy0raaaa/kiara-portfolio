@@ -1,4 +1,23 @@
 /* ── CURRENT SIGNALS LAYOUT ── */
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    flex: 1;             /* ← wajib agar overflow bekerja */
+    background: transparent;
+    align-self: stretch;
+    border-left: 1px solid var(--clr-border);
+}
+
+.panel {
+    display: flex;
+    flex: 1;
+    align-self: stretch;
+    height: auto;
+    min-height: fit-content;
+}
+
 .left-panel {
     flex: 1;
     padding: var(--pad-lg);
@@ -7,6 +26,10 @@
     flex-direction: column;
     gap: 32px;
     background: rgba(11, 22, 40, 0.1);
+    align-self: stretch;
+    height: auto;
+    min-height: fit-content;
+    align-self: stretch;
 }
 
 .right-panel {
@@ -16,7 +39,9 @@
     flex-direction: column;
     gap: 32px;
     background: rgba(11, 22, 40, 0.3);
-    border-left: 1px solid var(--clr-border-dim);
+    height: auto;
+    min-height: fit-content;
+    align-self: stretch;
 }
 
 .focus-box, .interest-box, .act-box, .mood-box {
@@ -96,10 +121,12 @@ h4.bracket::after { content: ']'; color: var(--clr-dim); }
         border-right: none;
         border-bottom: 1px solid var(--clr-border-dim);
         padding: 30px 20px;
+        align-items: stretch;
     }
 
     .right-panel {
         border-left: none;
         padding: 30px 20px;
+        align-items: stretch;
     }
 }

@@ -1,18 +1,30 @@
 /* ── TRANSMISSION LAYOUT ── */
 .transmission-content {
     flex: 1;
-    padding: var(--pad-lg);
     display: flex;
     flex-direction: column;
-    gap: 32px;
-    background: rgba(11, 22, 40, 0.1);
+    width: 100%;                   
+    background: transparent;
+    border-left: 1px solid var(--clr-border);
+    height: auto;
+    min-height: fit-content; /* ← penting untuk mengatasi masalah flex item yang tidak mengecil */
 }
 
 .transmission-header {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-bottom: 20px;
+    margin-top: 16px;
+    padding: var(--pad-md) var(--pad-lg);
+}
+
+.card-header {
+    padding: var(--pad-md) var(--pad-lg);
+    border-bottom: 1px solid var(--clr-border);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background: rgba(30, 58, 95, 0.05);
 }
 
 .system-text {
@@ -34,6 +46,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 20px;
+    padding: var(--pad-md) var(--pad-lg);
 }
 
 .transmission-card {
@@ -88,12 +101,44 @@
     letter-spacing: 1px;
 }
 
+.transmission-footer {
+    padding: 0 24px;
+}
+
 .transmission-incoming {
     border-top: 1px solid var(--clr-border-dim);
-    padding-top: 32px;
+    padding-top: 20px;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 20px;
+    padding: var(--pad-md) var(--pad-lg);
+}
+
+@keyframes hudFlicker {
+    0% {
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.2;
+    }
+
+    40% {
+        opacity: 0.4;
+    }
+
+    60% {
+        opacity: 0.6;
+    }
+
+    80% {
+        opacity: 0.8;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 .transmission-incoming h4 {
@@ -104,7 +149,10 @@
     display: flex;
     align-items: center;
     gap: 12px;
+    margin-top: 10px;
+    animation: hudFlicker 1s infinite;
 }
+
 
 .transmission-incoming h4::before {
     content: '>>';
@@ -120,7 +168,7 @@
     line-height: 1.7;
     color: var(--clr-muted);
     border-radius: 0 4px 4px 0;
-    min-height: 100px;
+    min-height: 200px;
     position: relative;
     margin-bottom: 20px;
 }
@@ -161,7 +209,11 @@
     color: var(--clr-dim);
     letter-spacing: 2px;
     font-style: italic;
-    margin-top: 10px;
+}
+
+.typing::after {
+    content: "|";
+    animation: blink 1s infinite;
 }
 
 /* ── RESPONSIVE OVERRIDES ── */

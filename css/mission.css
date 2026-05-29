@@ -1,11 +1,21 @@
 /* ── MISSION LOG LAYOUT ── */
 .mission {
     flex: 1;
-    padding: var(--pad-lg);
     display: flex;
     flex-direction: column;
     gap: 20px;
     background: transparent;
+    border-left: 1px solid var(--clr-border);
+    align-self: stretch;
+}
+
+.mission card-header {
+    padding: var(--pad-md) var(--pad-lg);
+    border-bottom: 1px solid var(--clr-border);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background: rgba(30, 58, 95, 0.05);
 }
 
 .mission-entry {
@@ -13,6 +23,7 @@
     border-radius: 4px;
     background: var(--clr-deep);
     overflow: hidden;
+    margin: 0 20px;
     transition: var(--transition-smooth);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
