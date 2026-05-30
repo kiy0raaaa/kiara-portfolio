@@ -416,3 +416,16 @@ footer {
         padding: 0;
     }
 }
+
+@media (max-width: 480px) {
+    .card-ref {
+        display: none; /* sembunyikan REF-ID di layar sangat kecil */
+    }
+}
+
+@media (max-width: 768px) {
+    .info a {
+        padding: 10px 16px; /* sedikit lebih lega */
+        white-space: nowrap;
+    }
+}
